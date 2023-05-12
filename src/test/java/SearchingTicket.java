@@ -1,12 +1,15 @@
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import org.testng.Assert;
 import org.testng.annotations.Test;
 
 import java.time.Duration;
+import java.util.List;
 
 public class SearchingTicket {
     @Test
@@ -34,11 +37,15 @@ public class SearchingTicket {
 
         //click and fill input text
         wait.until(ExpectedConditions.visibilityOfElementLocated (By.xpath("//input[@data-testid='airport-input-destination']"))).click();
-        wait.until(ExpectedConditions.visibilityOfElementLocated (By.xpath("//input[@data-testid='airport-input-destination']"))).sendKeys("airport-input-destination");
+        wait.until(ExpectedConditions.visibilityOfElementLocated (By.xpath("//input[@data-testid='airport-input-destination']"))).sendKeys("Jakarta");
         wait.until(ExpectedConditions.visibilityOfElementLocated (By.xpath("//span[contains(text(),'JKTA')]"))).click();
-        wait.until(ExpectedConditions.visibilityOfElementLocated (By.xpath("//div[text()='Search Flights']"))).click();
-        Thread.sleep(3000);
-        driver.close();
+        wait.until(ExpectedConditions.visibilityOfElementLocated (By.xpath("//*[@data-id='IcSystemSearch']"))).click();
+        List<WebElement> filter =wait.until(ExpectedConditions.visibilityOfElementLocated (By.xpath("//div[@tabindex='0']"))).findElements(By.xpath("//div[@tabindex='0']"));
+        Assert.assertTrue(filter.size() >0);
+        for(int i=0;i<10;i++){
+            System.out.println(filter.get(i).getAttribute("innerHTML"));
+        }
+        //driver.close();
 
     }
 }
