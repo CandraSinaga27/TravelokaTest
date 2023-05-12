@@ -35,7 +35,7 @@ public class SearchingTicket {
         //click and fill input text
         wait.until(ExpectedConditions.visibilityOfElementLocated (By.xpath("//input[@data-testid='airport-input-destination']"))).click();
         wait.until(ExpectedConditions.visibilityOfElementLocated (By.xpath("//input[@data-testid='airport-input-destination']"))).sendKeys("airport-input-destination");
-        wait.until(ExpectedConditions.visibilityOfElementLocated (By.xpath("//span[contains(text(),'J')]"))).click();
+        wait.until(ExpectedConditions.visibilityOfElementLocated (By.xpath("//span[contains(text(),'JKTA')]"))).click();
         Thread.sleep(3000);
         driver.close();
 
