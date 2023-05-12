@@ -36,6 +36,7 @@ public class SearchingTicket {
         wait.until(ExpectedConditions.visibilityOfElementLocated (By.xpath("//input[@data-testid='airport-input-destination']"))).click();
         wait.until(ExpectedConditions.visibilityOfElementLocated (By.xpath("//input[@data-testid='airport-input-destination']"))).sendKeys("airport-input-destination");
         wait.until(ExpectedConditions.visibilityOfElementLocated (By.xpath("//span[contains(text(),'JKTA')]"))).click();
+        wait.until(ExpectedConditions.visibilityOfElementLocated (By.xpath("//div[text()='Search Flights']"))).click();
         Thread.sleep(3000);
         driver.close();
 
