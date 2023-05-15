@@ -6,6 +6,5 @@
 - Java
 - Selenium
 - testNG
-- assertion
 # Video Result
 ![result video](./record/video.gif)
