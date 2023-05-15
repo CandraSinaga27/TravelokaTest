@@ -42,10 +42,13 @@ public class SearchingTicket {
         wait.until(ExpectedConditions.visibilityOfElementLocated (By.xpath("//*[@data-id='IcSystemSearch']"))).click();
         List<WebElement> filter =wait.until(ExpectedConditions.visibilityOfElementLocated (By.xpath("//div[@tabindex='0']"))).findElements(By.xpath("//div[@tabindex='0']"));
         Assert.assertTrue(filter.size() >0);
-        for(int i=0;i<10;i++){
-            System.out.println(filter.get(i).getAttribute("innerHTML"));
-        }
-        //driver.close();
+        //for(int i=0;i<10;i++){
+          //  System.out.println(filter.get(i).getAttribute("innerHTML"));
+        //}
+        String text = wait.until(ExpectedConditions.visibilityOfElementLocated (By.xpath("//h3[@aria-level='3' and @dir='auto' and contains(text(), 'Jakarta')]"))).getText();
+        Assert.assertTrue(text.contains("Jakarta"));
+        Assert.assertTrue(text.contains("Balikpapan"));
+        driver.close();
 
     }
 }
